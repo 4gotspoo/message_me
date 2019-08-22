@@ -1,19 +1,17 @@
-<a class="item">
-Chatroom
-</a>
-<a class="item">
-Messages
-</a>
+<%= link_to 'Chatroom', root_path, :class => "item" %>
 <div class="right menu">
-<div class="ui dropdown item">
-  Account<i class="dropdown icon"></i>
-  <div class="menu">
-  <a class="item">Logout</a>
-  <a class="item">Login</a>
-  <a class="item">Signup</a>
+  <div class="item">
+    <% if logged_in? %>
+      <%= current_user.username %>
+    <% else %>
+      Not logged in
+    <% end %>  
   </div>
-</div>
-<div class="item">
-  <div class="ui green button">Sign Up</div>
-</div>
+  <div class="item">
+    <% if logged_in? %>
+      <%= link_to 'Log Out', logout_path, method: :delete, :class => "ui teal button"   %>
+    <% else %>
+      <%= link_to 'Log In', login_path, :class => "ui teal button"  %>
+    <% end %>
+  </div>
 </div>

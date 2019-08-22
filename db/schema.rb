@@ -10,38 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_154819) do
+ActiveRecord::Schema.define(version: 2019_08_22_171100) do
 
-  create_table "chatroom_interests", force: :cascade do |t|
-    t.integer "chatroom_id"
-    t.integer "interest_id"
-  end
-
-  create_table "chatrooms", force: :cascade do |t|
-    t.string "name"
-    t.string "password_digest"
-    t.boolean "private", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "interests", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_interests", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
     t.integer "user_id"
-    t.integer "interest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "email"
     t.string "password_digest"
-    t.boolean "oper", default: false
-    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
