@@ -7,20 +7,20 @@
 <div class="ui two column grid">
     <div class="twelve wide column">
       <div class="ui fluid raised card chatbox">
-		<div class="content">
-			<div class="ui feed">
-			  <%= render @messages %>
-			</div>
-		</div>
+        <div class="content">
+          <div class="ui feed">
+            <%= render @messages %>
+          </div>
+        </div>
 			<div class="extra content">
-				<form class="ui reply form">
-				<div class="field">
-				<div class="ui action input">
-					<input placeholder="Add message..." type="text">
-					<button class="ui teal button">Post!</button>
-				</div>
-				</div>
-				</form>
+        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path) do |f| %>
+          <div class="field">
+            <div class="ui action input">
+              <%= f.text_field :body %>
+              <%= f.button 'Post!', class: "ui teal button" %>
+            </div>
+          </div>
+        <% end %>
 			</div>
     </div>
   </div>
@@ -30,9 +30,9 @@
       <div class="content">
         <div class="ui vertical menu">
           <a class="teal item">
-          Users
+            Users
           </a>
-		  <%= render 'userlist' %>
+          <%= render 'userlist' %>
         </div>
       </div>
     </div>
