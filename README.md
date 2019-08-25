@@ -2,4 +2,6 @@
 
 This application allows for live-chatting among users, and utilizes **Rails 2.5.5**.
 
-The development of this project continues: not all features exist yet.
+It allows for real-time chatting in a single channel among users using the websocket protocol through Action Cable.
+
+This program has complete feautres but requires upgrades to the user interface.
